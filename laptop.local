@@ -1,0 +1,65 @@
+fancy_echo "Installing more homebrew"
+
+brew bundle --file=- <<EOF
+tap "caskroom/fonts"
+
+brew "neovim"
+brew "tree"
+brew "fzf"
+brew "ripgrep"
+brew "autoconf"
+brew "automake"
+brew "libtool"
+brew "libxslt"
+brew "readline"
+brew "unixodbc"
+brew "zsh-syntax-highlighting"
+
+cask "appcleaner"
+cask "google-chrome"
+cask "firefox"
+cask "1password"
+cask "launchrocket"
+cask "font-meslo-nerd-font"
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "qlimagesize"
+cask "qlvideo"
+cask "spectacle"
+cask "slack"
+cask "suspicious-package"
+cask "vlc"
+cask "webpquicklook"
+EOF
+
+fancy_echo "Installing fzf bindings"
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
+
+fancy_echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+/* fancy_echo "Installing .tmux.conf" */
+/* git clone https://github.com/gpakosz/.tmux.git ~/.tmux */
+/* ln -s -f .tmux/.tmux.conf */
+/* cp .tmux/.tmux.conf.local . */
+
+fancy_echo "Set git global settings"
+git config --global user.name “Tony Chung“
+git config --global user.email "anthonyuchung@gmail.com"
+git config --global credential.helper osxkeychain
+
+/* fancy_echo "Installing rust" */
+/* curl https://sh.rustup.rs -sSf | sh */
+/*  */
+/* fancy_echo "Installing alacritty" */
+/* git clone https://github.com/jwilm/alacritty.git ~/alacritty */
+/* cd alacritty */
+/*  */
+/* rustup override set stable */
+/* rustup update stable */
+/*  */
+/* make app */
+/* cp -r target/release/osx/Alacritty.app /Applications/ */
